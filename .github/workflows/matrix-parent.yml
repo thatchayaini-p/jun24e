@@ -1,0 +1,23 @@
+name: Matrix Parent
+
+on:
+  workflow_call:
+    inputs:
+      name:
+        required: true
+        type: string
+
+jobs:
+  matrix-build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Echo matrix from ${{ inputs.name }}
+        run: echo "Running on ${{ matrix.os }} - Triggered by ${{ inputs.name }}"
+
+  call-env:
+    uses: ./.github/workflows/caller-with-env.yml
+    with:
+      name: from-matrix
