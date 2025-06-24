@@ -1,0 +1,14 @@
+name: Chained Caller
+
+on:
+  workflow_call:
+    inputs:
+      name:
+        required: true
+        type: string
+
+jobs:
+  call-manual:
+    uses: ./.github/workflows/manual-trigger.yml
+    with:
+      name: from-chained
