@@ -1,0 +1,14 @@
+name: Trigger Workflow
+
+on:
+  workflow_call:
+    inputs:
+      name:
+        required: true
+        type: string
+
+jobs:
+  call-target:
+    uses: ./.github/workflows/target.yml
+    with:
+      name: from-trigger
