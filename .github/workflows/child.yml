@@ -1,0 +1,14 @@
+name: Child Workflow
+
+on:
+  workflow_call:
+    inputs:
+      name:
+        required: true
+        type: string
+
+jobs:
+  call-trigger:
+    uses: ./.github/workflows/trigger.yml
+    with:
+      name: from-child
