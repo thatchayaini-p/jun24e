@@ -1,0 +1,14 @@
+name: Target Workflow
+
+on:
+  workflow_call:
+    inputs:
+      name:
+        required: true
+        type: string
+
+jobs:
+  call-dispatch:
+    uses: ./.github/workflows/workflow-dispatch-caller.yml
+    with:
+      name: from-target
