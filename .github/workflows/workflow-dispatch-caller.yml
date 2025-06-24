@@ -1,0 +1,14 @@
+name: Dispatch Caller Workflow
+
+on:
+  workflow_call:
+    inputs:
+      name:
+        required: true
+        type: string
+
+jobs:
+  call-matrix:
+    uses: ./.github/workflows/matrix-parent.yml
+    with:
+      name: from-dispatch
