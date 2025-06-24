@@ -1,0 +1,14 @@
+name: Caller With Env
+
+on:
+  workflow_call:
+    inputs:
+      name:
+        required: true
+        type: string
+
+jobs:
+  call-chained:
+    uses: ./.github/workflows/chained-caller.yml
+    with:
+      name: from-env
