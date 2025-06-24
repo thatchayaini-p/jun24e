@@ -1,0 +1,15 @@
+name: Multi Workflow Caller
+
+on:
+  workflow_call:
+    inputs:
+      name:
+        required: true
+        type: string
+
+jobs:
+  final-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: End of Chain
+        run: echo "Final step reached. Triggered by ${{ inputs.name }}"
