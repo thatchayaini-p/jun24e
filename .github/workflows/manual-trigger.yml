@@ -1,0 +1,14 @@
+name: Manual Trigger
+
+on:
+  workflow_call:
+    inputs:
+      name:
+        required: true
+        type: string
+
+jobs:
+  call-multi:
+    uses: ./.github/workflows/multi-workflow-caller.yml
+    with:
+      name: from-manual
